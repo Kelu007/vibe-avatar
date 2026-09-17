@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="VibeAvatar aligns phonetic kinematics and human aesthetics for high-fidelity, efficient talking avatar synthesis from a reference portrait and speech.">
+  <meta property="og:title" content="VibeAvatar: High-Fidelity Talking Avatar Synthesis">
+  <meta property="og:description" content="Aligning phonetic kinematics and human aesthetics for accurate lip articulation, expressive motion, and efficient inference.">
+  <meta property="og:url" content="https://kelu007.github.io/vibe-avatar/">
+  <meta property="og:image" content="https://kelu007.github.io/vibe-avatar/static/images/teaser.png">
+  <meta property="og:type" content="website">
+  <meta name="keywords" content="VibeAvatar, Talking Avatar Synthesis, Flow Matching, Phonetic Kinematics, Aesthetic Motion Policy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeAvatar: Aligning Phonetic Kinematics and Human Aesthetics for High-Fidelity Talking Avatar Synthesis</title>
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.svg">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <button class="navbar-burger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="research-navigation">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="navbar-menu" id="research-navigation">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://kelu007.github.io/" aria-label="Qilin Wang's homepage">
+        <span class="icon"><i class="fas fa-home" aria-hidden="true"></i></span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="https://kelu007.github.io/">More Research</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://kelu007.github.io/vivid-pose/">VividPose</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VibeAvatar: Aligning Phonetic Kinematics and Human Aesthetics for High-Fidelity Talking Avatar Synthesis</h1>
+          <p class="publication-venue">ACM MM 2026</p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://kelu007.github.io/">Qilin Wang</a>,</span>
+            <span class="author-block"><a href="https://marvelim.github.io/">Mingyu Li</a>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=9zJkeEMAAAAJ&amp;hl=en">Hao Tang</a><sup>*</sup></span>
+          </div>
+          <div class="publication-affiliations">
+            <p>Peking University</p>
+          </div>
+          <p class="corresponding-author"><sup>*</sup>Corresponding author</p>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2609.18632" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" aria-label="VibeAvatar overview">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure>
+        <a href="./static/images/teaser.png" target="_blank" rel="noopener" aria-label="View the teaser image at full resolution">
+          <img id="teaser" src="./static/images/teaser.png" width="2418" height="988" fetchpriority="high" alt="VibeAvatar results: long-term avatar animation up to 180 seconds, talking, singing, and stylized portrait animation.">
+        </a>
+        <figcaption class="subtitle has-text-centered">
+          <strong>VibeAvatar</strong> brings portraits to life with accurate lip articulation, natural facial dynamics, and stable identity across talking, singing, and stylized avatars.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Multi-modal talking avatar synthesis aims to generate realistic talking videos from a reference portrait and speech. Despite rapid progress in diffusion-based methods, existing approaches still struggle to jointly achieve accurate lip articulation, human-preferred motion aesthetics, and efficient inference. We observe that phonetic accuracy and motion aesthetics arise from fundamentally different sources and should be addressed at complementary stages rather than learned implicitly by a single generator. Based on this insight, we propose VibeAvatar, which disentangles these two objectives through a Phonetic Kinematics Adapter (PKA) that converts recognition-oriented speech features into phonetic-kinematic conditions at the conditioning stage, and an Aesthetic Motion Policy (AMP) that optimizes a flow-consistent stochastic sampling policy via Group Relative Policy Optimization (GRPO) at the post-training stage. With a lightweight flow-based motion generator operating in a compact 1D warp-based latent motion space, VibeAvatar achieves state-of-the-art results in articulation, aesthetics, and efficiency on both objective metrics and user studies, while generating a 10-second 512px video in under 10 seconds with only ~3GB VRAM.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <figure class="method-figure">
+      <a href="./static/images/framework.png" target="_blank" rel="noopener" aria-label="View the method diagram at full resolution">
+        <img src="./static/images/framework.png" width="2020" height="920" loading="lazy" alt="VibeAvatar pipeline and Phonetic Kinematics Adapter: reference-image encoding and speech conditioning guide a flow-based motion generator, while the Aesthetic Motion Policy uses reward-guided post-training.">
+      </a>
+      <figcaption class="content has-text-justified">
+        <p><strong>Overview of VibeAvatar.</strong> (a) The framework integrates a lightweight flow-based motion generator, a Phonetic Kinematics Adapter (PKA), and an Aesthetic Motion Policy (AMP) to improve lip articulation, motion aesthetics, and inference efficiency. (b) PKA transforms generic speech features into phonetic-kinematic conditions through hierarchical shifted attention, enabling local bidirectional interaction, causal aggregation, and a progressively enlarged receptive field for accurate lip articulation.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Video Demo</h2>
+    <video id="demo-video" class="demo-video" controls playsinline preload="metadata" poster="./static/images/demo-poster.jpg" width="1280" height="720" aria-label="VibeAvatar demonstration video with audio">
+      <source src="./static/videos/demo.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="./static/videos/demo.mp4">Download the demo</a> to watch it.
+    </video>
+    <p class="has-text-centered video-caption">VibeAvatar consistently produces more accurate lip-sync, more natural facial expressions, and higher overall visual quality.</p>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>@inproceedings{wang2026vibeavatar,
+  title={VibeAvatar: Aligning Phonetic Kinematics and Human Aesthetics for High-Fidelity Talking Avatar Synthesis},
+  author={Wang, Qilin and Li, Mingyu and Tang, Hao},
+  booktitle={Proceedings of the 34th ACM International Conference on Multimedia},
+  year={2026},
+  doi={10.1145/3767308.3835899},
+  url={https://arxiv.org/abs/2609.18632}
+}</code></pre>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link external-link" href="https://arxiv.org/pdf/2609.18632" aria-label="Read the paper">
+        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+      </a>
+      <p>This page was adapted from <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
